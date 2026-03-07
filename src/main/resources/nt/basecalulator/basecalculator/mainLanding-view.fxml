@@ -2,106 +2,231 @@
 
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="905.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nt.basecalulator.basecalculator.MainLandingController">
-   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#23a156" height="39.0" layoutX="14.0" layoutY="444.0" stroke="TRANSPARENT" strokeType="INSIDE" width="822.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#23a156" height="39.0" layoutX="14.0" layoutY="173.0" stroke="TRANSPARENT" strokeType="INSIDE" width="822.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c059" height="39.0" layoutX="-6.0" layoutY="431.0" stroke="TRANSPARENT" strokeType="INSIDE" width="822.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c059" height="39.0" layoutX="-8.0" layoutY="166.0" stroke="TRANSPARENT" strokeType="INSIDE" width="822.0" />
-      <Text layoutX="34.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cotizaciones" textAlignment="CENTER" wrappingWidth="738.13671875">
-         <font>
-            <Font size="35.0" />
-         </font>
-      </Text>
-      <Text layoutX="53.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0">
-         <font>
-            <Font name="Georgia" size="31.0" />
-         </font>
-      </Text>
-      <CheckBox layoutX="40.0" layoutY="486.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="172.0" text="Plan Escencial:">
-         <font>
-            <Font size="20.0" />
-         </font></CheckBox>
-      <TextField fx:id="nombre" layoutX="110.0" layoutY="212.0" />
-      <TextField fx:id="tipoEvento" layoutX="181.0" layoutY="250.0" />
-      <TextField fx:id="fechaEvento" layoutX="96.0" layoutY="284.0" />
-      <TextField fx:id="horarioEvento" layoutX="110.0" layoutY="320.0" />
-      <TextField fx:id="paxEvento" layoutX="68.0" layoutY="354.0" />
-      <TextField fx:id="precioPlanEscencial" layoutX="248.0" layoutY="485.0" pickOnBounds="false" prefHeight="26.0" prefWidth="76.0" text="35" />
-      <Text layoutX="321.0" layoutY="540.0" strokeType="OUTSIDE" strokeWidth="0.0">
-         <font>
-            <Font name="Georgia" size="31.0" />
-         </font>
-      </Text>
-      <Label layoutX="27.0" layoutY="207.0" prefHeight="36.0" prefWidth="82.0" text="Nombre:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="27.0" layoutY="248.0" prefHeight="30.0" prefWidth="142.0" text="Tipo de evento:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="27.0" layoutY="282.0" prefHeight="30.0" prefWidth="60.0" text="Fecha:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="27.0" layoutY="318.0" prefHeight="30.0" prefWidth="76.0" text="Horario:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="27.0" layoutY="352.0" prefHeight="30.0" prefWidth="76.0" text="Pax:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="27.0" layoutY="387.0" prefHeight="30.0" prefWidth="82.0" text="Servicios:">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <CheckBox fx:id="instalacionesServicio" layoutX="121.0" layoutY="389.0" mnemonicParsing="false" text="Uso de Instalaciones" />
-      <CheckBox fx:id="alimentacionServicio" layoutX="294.0" layoutY="389.0" mnemonicParsing="false" text="Alimentacion" />
-      <CheckBox fx:id="salonEventosServicio" layoutX="429.0" layoutY="389.0" mnemonicParsing="false" text="Salón de eventos" />
-      <Text fill="WHITE" layoutX="14.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Información General:" wrappingWidth="347.8671875">
-         <font>
-            <Font name="System Bold" size="29.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="11.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alimentación:" wrappingWidth="230.30078125">
-         <font>
-            <Font name="System Bold" size="29.0" />
-         </font>
-      </Text>
-      <CheckBox layoutX="40.0" layoutY="528.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="188.0" text="Plan Tradicional:">
-         <font>
-            <Font size="20.0" />
-         </font></CheckBox>
-      <TextField fx:id="precioPlanTradicional" layoutX="248.0" layoutY="530.0" prefHeight="26.0" prefWidth="52.0" text=" 38" />
-      <CheckBox layoutX="40.0" layoutY="571.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="172.0" text="Plan Superior:">
-         <font>
-            <Font size="20.0" />
-         </font></CheckBox>
-      <TextField fx:id="precioPlanSuperior" layoutX="251.0" layoutY="573.0" prefHeight="26.0" prefWidth="52.0" text="43" />
-      <CheckBox fx:id="breakPlanEscencial" layoutX="327.0" layoutY="485.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" text="Break?" />
-      <CheckBox fx:id="breakPlanTradicional" layoutX="327.0" layoutY="530.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" text="Break?" />
-      <CheckBox fx:id="breakPlanSuperior" layoutX="327.0" layoutY="573.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" text="Break?" />
-      <CheckBox fx:id="piscinaServicio" layoutX="580.0" layoutY="389.0" mnemonicParsing="false" text="Piscina" />
-      <ImageView fitHeight="107.0" fitWidth="188.0" layoutX="320.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Airport_Garden_Logo.png" />
-         </image>
-      </ImageView>
-   </children>
-</AnchorPane>
+<ScrollPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nt.basecalulator.basecalculator.MainLandingController">
+   <content>
+      <AnchorPane prefHeight="1686.0" prefWidth="956.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#23a156" height="39.0" layoutX="12.0" layoutY="463.0" stroke="TRANSPARENT" strokeType="INSIDE" width="920.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#23a156" height="39.0" layoutX="14.0" layoutY="173.0" stroke="TRANSPARENT" strokeType="INSIDE" width="932.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c059" height="39.0" layoutX="-8.0" layoutY="450.0" stroke="TRANSPARENT" strokeType="INSIDE" width="926.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c059" height="39.0" layoutX="-8.0" layoutY="166.0" stroke="TRANSPARENT" strokeType="INSIDE" width="940.0" />
+            <Text layoutX="107.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cotizaciones" textAlignment="CENTER" wrappingWidth="738.13671875">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Text>
+            <HBox layoutX="27.0" layoutY="516.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="172.0" text="Plan Escencial:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </CheckBox>
+                  <TextField fx:id="precioPlanEscencial" pickOnBounds="false" prefHeight="26.0" prefWidth="76.0" text="35" />
+               </children>
+            </HBox>
+            <TextField fx:id="nombre" layoutX="110.0" layoutY="225.0" />
+            <TextField fx:id="tipoEvento" layoutX="181.0" layoutY="263.0" />
+            <TextField fx:id="fechaEvento" layoutX="96.0" layoutY="297.0" />
+            <TextField fx:id="horarioEvento" layoutX="110.0" layoutY="333.0" />
+            <TextField fx:id="paxEvento" layoutX="68.0" layoutY="367.0" />
+            <Text layoutX="319.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font name="Georgia" size="31.0" />
+               </font>
+            </Text>
+            <Label layoutX="27.0" layoutY="220.0" prefHeight="36.0" prefWidth="82.0" text="Nombre:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="261.0" prefHeight="30.0" prefWidth="142.0" text="Tipo de evento:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="295.0" prefHeight="30.0" prefWidth="60.0" text="Fecha:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="331.0" prefHeight="30.0" prefWidth="76.0" text="Horario:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="365.0" prefHeight="30.0" prefWidth="76.0" text="Pax:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="400.0" prefHeight="30.0" prefWidth="82.0" text="Servicios:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="instalacionesServicio" layoutX="121.0" layoutY="402.0" mnemonicParsing="false" text="Uso de Instalaciones" />
+            <CheckBox fx:id="alimentacionServicio" layoutX="294.0" layoutY="402.0" mnemonicParsing="false" text="Alimentacion" />
+            <CheckBox fx:id="salonEventosServicio" layoutX="429.0" layoutY="402.0" mnemonicParsing="false" text="Salón de eventos" />
+            <Text fill="WHITE" layoutX="14.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Información General:" wrappingWidth="347.8671875">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="12.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alimentación:" wrappingWidth="230.30078125">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Text>
+            <HBox layoutX="24.0" layoutY="709.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="188.0" text="Plan Tradicional:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </CheckBox>
+                  <TextField fx:id="precioPlanTradicional" prefHeight="26.0" prefWidth="52.0" text=" 38" />
+               </children>
+            </HBox>
+            <HBox layoutX="24.0" layoutY="894.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" prefHeight="30.0" prefWidth="172.0" text="Plan Parrillero:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </CheckBox>
+                  <TextField fx:id="precioPlanSuperior" prefHeight="26.0" prefWidth="52.0" text="43" />
+               </children>
+            </HBox>
+            <CheckBox fx:id="piscinaServicio" layoutX="580.0" layoutY="402.0" mnemonicParsing="false" text="Piscina" />
+            <ImageView fitHeight="107.0" fitWidth="188.0" layoutX="391.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Airport_Garden_Logo.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="54.0" layoutY="549.0">
+               <children>
+                  <Label layoutY="18.0" prefHeight="119.0" prefWidth="329.0" text="Entrada: sopa de pollo&#10;Plato fuerte: Chuleta de cerdo a la plancha en salsa de champiñones&#10;Guarniciones: Arroz verde, ensalada Waldorf&#10;Bebida: Jugo natural o gaseosa" wrapText="true" />
+                  <Label layoutX="347.0" layoutY="18.0" prefHeight="119.0" prefWidth="283.0" text="Entrada: crema de vegetales&#10;Plato fuerte: Pollo al horno&#10;Guarniciones: Milhoja de papa, ensalada rusa, arroz blanco&#10;Bebida: Jugo natural o gaseosa" wrapText="true" />
+                  <Label text="Menú almuerzo 1">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="349.0" layoutY="5.0" text="Menú almuerzo 2">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="647.0" layoutY="5.0" text="Opciones Break AM/PM">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="652.0" layoutY="30.0" prefHeight="60.0" prefWidth="128.0" text="Empanada de pollo&#10;Club sánduche&#10;Tacos de frijoles" wrapText="true" />
+               </children>
+            </Pane>
+            <CheckBox fx:id="breakPlanEscencial" layoutX="698.0" layoutY="518.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" selected="true" text="Break?" />
+            <Pane layoutX="51.0" layoutY="742.0">
+               <children>
+                  <Label layoutY="27.0" prefHeight="103.0" prefWidth="329.0" text="Entrada: Locro Quiteño&#10;Plato fuerte: Fritada de cerdo, mote, maduro frito, encurtido y aguacate&#10;Bebida: Avena de frutas&#10;Postre: Helado a la copa" wrapText="true" />
+                  <Label layoutY="6.0" text="Menú almuerzo">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="345.0" layoutY="4.0" prefHeight="23.0" prefWidth="180.0" text="Opciones Break AM/PM">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="351.0" layoutY="27.0" prefHeight="107.0" prefWidth="188.0" text="Humita, tamal o quimbolito&#10;Choclo con queso&#10;Ceviche de chochos&#10;Sánduche&#10;Empanada de Pollo/carne" wrapText="true" />
+               </children>
+            </Pane>
+            <Pane layoutX="50.0" layoutY="926.0">
+               <children>
+                  <Label layoutY="18.0" prefHeight="126.0" prefWidth="329.0" text="Cárnicos: res, chuleta de cerdo, pollo, 2 tipos de embutidos&#10;Guarniciones: choclo cocinado, papa al horno con salsa de queso, chimichurri, ensalada fresca&#10;Bebida: jugo natural o gaseosa&#10;Postre: torta de chocolate" wrapText="true" />
+                  <Label text="Menú almuerzo">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="351.0" layoutY="25.0" prefHeight="148.0" prefWidth="195.0" text="Taco de frijoles y carne&#10;Nachos con guacamole&#10;Frutas con yogurt y granola &#10;Humita, tamal o quimbolito&#10;Choclo con queso&#10;Ceviche de chochos&#10;Sánduche&#10;Empanada de Pollo/carne&#10;" wrapText="true" />
+                  <Label layoutX="340.0" layoutY="3.0" text="Opciones Break AM/PM">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <CheckBox fx:id="breakPlanTradicional" layoutX="387.0" layoutY="716.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="82.0" selected="true" text="Break?" />
+            <CheckBox fx:id="breakPlanSuperior" layoutX="400.0" layoutY="898.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="76.0" selected="true" text="Break?" />
+            <AnchorPane layoutX="-8.0" layoutY="1135.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#23a156" height="39.0" layoutX="20.0" layoutY="14.0" stroke="TRANSPARENT" strokeType="INSIDE" width="920.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c059" height="39.0" layoutY="1.0" stroke="TRANSPARENT" strokeType="INSIDE" width="926.0" />
+                  <Text fill="WHITE" layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hospedaje" wrappingWidth="230.30078125">
+                     <font>
+                        <Font name="System Bold" size="29.0" />
+                     </font>
+                  </Text>
+                  <CheckBox fx:id="hospedajeCheck" layoutX="187.0" layoutY="-2.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="31.0">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </AnchorPane>
+            <HBox layoutX="27.0" layoutY="1252.0">
+               <children>
+                  <CheckBox fx:id="hospedajeSimple" mnemonicParsing="false" prefHeight="30.0" prefWidth="172.0" text="Hab. Simple">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </CheckBox>
+                  <TextField fx:id="precioHospedajeSimple" prefHeight="26.0" prefWidth="52.0" text="50" />
+               </children>
+            </HBox>
+            <HBox layoutX="336.0" layoutY="1252.0">
+               <children>
+                  <CheckBox fx:id="hospedajeDoble" mnemonicParsing="false" prefHeight="30.0" prefWidth="172.0" text="Hab. Doble">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </CheckBox>
+                  <TextField fx:id="precioHospedajeDoble" prefHeight="26.0" prefWidth="52.0" text="40" />
+               </children>
+            </HBox>
+            <HBox layoutX="659.0" layoutY="1252.0">
+               <children>
+                  <CheckBox fx:id="hospedajeMultiple" mnemonicParsing="false" prefHeight="30.0" prefWidth="172.0" text="Hab. Multiples">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </CheckBox>
+                  <TextField fx:id="precioHospedajeMultiple" prefHeight="26.0" prefWidth="52.0" text="35" />
+               </children>
+            </HBox>
+            <CheckBox fx:id="alimentacionCheck" layoutX="220.0" layoutY="446.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="31.0">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="prefixEstimado" layoutX="281.0" layoutY="225.0" mnemonicParsing="false" text="Estimado:" />
+            <CheckBox fx:id="prefixEstimada" layoutX="392.0" layoutY="225.0" mnemonicParsing="false" text="Estimada:" />
+            <CheckBox fx:id="prefixEstimados" layoutX="505.0" layoutY="225.0" mnemonicParsing="false" text="Estimados:" />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

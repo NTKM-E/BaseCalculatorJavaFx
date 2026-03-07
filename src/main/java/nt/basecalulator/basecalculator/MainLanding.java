@@ -11,7 +11,7 @@ public class MainLanding extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainLanding.class.getResource("mainLanding-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 905);
+        Scene scene = new Scene(fxmlLoader.load(), 956, 956);
         stage.setTitle("Airport Garden Cotizaciones");
         stage.setScene(scene);
         stage.show();

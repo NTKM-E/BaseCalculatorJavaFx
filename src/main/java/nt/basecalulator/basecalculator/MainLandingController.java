@@ -38,6 +38,12 @@ public class MainLandingController {
     private CheckBox piscinaServicio;
     @FXML
     private CheckBox salonEventosServicio;
+    @FXML
+    private CheckBox prefixEstimado;
+    @FXML
+    private CheckBox prefixEstimada;
+    @FXML
+    private CheckBox prefixEstimados;
 
 
 
