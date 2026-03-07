@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -226,6 +227,7 @@
             <CheckBox fx:id="prefixEstimado" layoutX="281.0" layoutY="225.0" mnemonicParsing="false" text="Estimado:" />
             <CheckBox fx:id="prefixEstimada" layoutX="392.0" layoutY="225.0" mnemonicParsing="false" text="Estimada:" />
             <CheckBox fx:id="prefixEstimados" layoutX="505.0" layoutY="225.0" mnemonicParsing="false" text="Estimados:" />
+            <Button fx:id="generarButton" layoutX="378.0" layoutY="1387.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="180.0" text="GENERAR" />
          </children>
       </AnchorPane>
    </content>

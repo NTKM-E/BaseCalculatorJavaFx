@@ -1,7 +1,7 @@
 package nt.basecalulator.basecalculator;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
 
@@ -44,11 +44,36 @@ public class MainLandingController {
     private CheckBox prefixEstimada;
     @FXML
     private CheckBox prefixEstimados;
-
-
-
     @FXML
-    protected void onHelloButtonClick() {
-        fechaEvento.setText("Welcome to JavaFX Application!");
+    private Button generarButton;
+
+    formData data = new formData();
+
+    protected void setData() {
+        data.nombre = nombre.getText();
+        data.fechaEvento = fechaEvento.getText();
+        data.horarioEvento = horarioEvento.getText();
+        data.paxEvento = paxEvento.getText();
+        data.precioPlanEscencial = precioPlanEscencial.getText();
+        data.precioPlanSuperior = precioPlanSuperior.getText();
+        data.precioPlanTradicional = precioPlanTradicional.getText();
+        data.tipoEvento = tipoEvento.getText();
+        data.alimentacionServicio = alimentacionServicio.isSelected();
+        data.breakPlanEscencial = breakPlanEscencial.isSelected();
+        data.breakPlanSuperior = breakPlanSuperior.isSelected();
+        data.breakPlanTradicional = breakPlanTradicional.isSelected();
+        data.instalacionesServicio = instalacionesServicio.isSelected();
+        data.piscinaServicio = piscinaServicio.isSelected();
+        data.salonEventosServicio = salonEventosServicio.isSelected();
+        data.prefixEstimado = prefixEstimado.isSelected();
+        data.prefixEstimada = prefixEstimada.isSelected();
+        data.prefixEstimados = prefixEstimados.isSelected();
+    }
+
+    protected void onClick(){
+        if (generarButton.isPressed()){
+            setData();
+        }
     }
 }
+
