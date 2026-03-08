@@ -23,5 +23,10 @@ public class formData {
     public Boolean prefixEstimado;
     public Boolean prefixEstimada;
     public Boolean prefixEstimados;
+    public Boolean hospedajeCheck;
+    public Boolean planEscencialCheck;
+    public Boolean planTradicionalCheck;
+    public Boolean planParrilleroCheck;
+
 
 }

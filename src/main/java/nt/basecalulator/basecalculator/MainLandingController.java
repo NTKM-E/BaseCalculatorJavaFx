@@ -6,7 +6,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
 
 
-
 public class MainLandingController {
     @FXML
     private TextField fechaEvento;
@@ -45,6 +44,14 @@ public class MainLandingController {
     @FXML
     private CheckBox prefixEstimados;
     @FXML
+    private CheckBox hospedajeCheck;
+    @FXML
+    private CheckBox planEscencialCheck;
+    @FXML
+    private CheckBox planTradicionalCheck;
+    @FXML
+    private CheckBox planParrilleroCheck;
+    @FXML
     private Button generarButton;
 
     formData data = new formData();
@@ -68,12 +75,16 @@ public class MainLandingController {
         data.prefixEstimado = prefixEstimado.isSelected();
         data.prefixEstimada = prefixEstimada.isSelected();
         data.prefixEstimados = prefixEstimados.isSelected();
-    }
+        data.hospedajeCheck = hospedajeCheck.isSelected();
+        data.planEscencialCheck = planEscencialCheck.isSelected();
+        data.planTradicionalCheck = planTradicionalCheck.isSelected();
+        data.planParrilleroCheck = planParrilleroCheck.isSelected();
 
-    protected void onClick(){
-        if (generarButton.isPressed()){
-            setData();
-        }
+    }
+    @FXML
+    private void setAndGenerate()throws Exception {
+        setData();
+        DocumentGenerator.generate(data);
     }
 }
 
