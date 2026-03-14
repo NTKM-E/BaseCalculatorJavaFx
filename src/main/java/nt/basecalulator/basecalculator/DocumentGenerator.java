@@ -15,29 +15,16 @@ public class DocumentGenerator {
         InputStream template = DocumentGenerator.class.getResourceAsStream("/baseDocument.docx");
         XWPFDocument doc = new XWPFDocument(template);
 
-        for (XWPFParagraph para : doc.getParagraphs()) {
-            for (XWPFRun run : para.getRuns()) {
-                System.out.println("RUN: [" + run.getText(0) + "]");
-            }
-        }
 
-        for (XWPFParagraph para : doc.getParagraphs()) {
-            for (XWPFRun run : para.getRuns()) {
-                String text = run.getText(0);
-                if (text != null) {
-                    text = text.replace("{{NOMBRE}}", data.nombre);
-                    text = text.replace("{{TIPO_DE_EVENTO}}", data.tipoEvento);
-                    text = text.replace("{{FECHAS_EVENTO}}", data.fechaEvento);
-                    text = text.replace("{{PAX_EVENTO}}", data.paxEvento);
-                    text = text.replace("{{HORARIO_EVENTO}}", data.horarioEvento);
-                    text = text.replace("{{DATE}}",LocalDate.now().format(DateTimeFormatter.ofPattern("d/M/yyyy")));
-
-                }
-                run.setText(text,0);
-
-            }
-
-
+        Map<String, String> fields = new HashMap<>();
+        fields.put("{{NOMBRE}}", data.nombre);
+        fields.put("{{TIPO_DE_EVENTO}}", data.tipoEvento);
+        fields.put("{{FECHAS_EVENTO}}", data.fechaEvento);
+        fields.put("{{PAX_EVENTO}}", data.paxEvento);
+        fields.put("{{HORARIO_EVENTO}}", data.horarioEvento);
+        fields.put("{{DATE}}",LocalDate.now().format(DateTimeFormatter.ofPattern("d/M/yyyy")));
+        for (XWPFParagraph paragraph : doc.getParagraphs()) {
+            replaceParagraph(paragraph,fields);
         }
         List<String[]> sectionMarkersToRemove = new ArrayList<>();
         if (!data.hospedajeCheck) {sectionMarkersToRemove.add(new String[]{"{{START_HOSPEDAJE}}", "{{END_HOSPEDAJE}}"});}
@@ -69,6 +56,31 @@ public class DocumentGenerator {
         doc.write(output);
         output.close();
         doc.close();
+
+
+
+
+
+        }
+
+        public static void  replaceParagraph(XWPFParagraph paragraph, Map<String, String> fields){
+            StringBuilder stringBuild = new StringBuilder();
+            for (XWPFRun run :paragraph.getRuns()){
+                if (run.getText(0) != null ){
+                    stringBuild.append(run.getText(0));
+                }
+            }
+            String allText = stringBuild.toString();
+            for(Map.Entry<String, String> entry: fields.entrySet()){
+                allText = allText.replace(entry.getKey(),entry.getValue());
+            }
+            for (int i =0;i < paragraph.getRuns().size(); i++){
+                paragraph.getRuns().get(i).setText(i==0?allText:"",0);
+
+
+
+            }
+
 
 
 
