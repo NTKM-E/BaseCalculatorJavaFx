@@ -11,6 +11,9 @@ public class formData {
     public String precioPlanSuperior;
     public String precioPlanTradicional;
     public String tipoEvento;
+    public String precioHospedajeSimple;
+    public String precioHospedajeDoble;
+    public String precioHospedajeMultiple;
 
     //Checkboxes
     public Boolean alimentacionServicio;

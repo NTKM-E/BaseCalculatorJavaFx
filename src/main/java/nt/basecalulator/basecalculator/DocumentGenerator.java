@@ -22,15 +22,40 @@ public class DocumentGenerator {
         fields.put("{{FECHAS_EVENTO}}", data.fechaEvento);
         fields.put("{{PAX_EVENTO}}", data.paxEvento);
         fields.put("{{HORARIO_EVENTO}}", data.horarioEvento);
+
+        fields.put("{{PRECIO_ESENCIAL}}", data.precioPlanEscencial);
+        fields.put("{{PRECIO_TRADICIONAL}}", data.precioPlanTradicional);
+        fields.put("{{PRECIO_PARRILLERO}}", data.precioPlanSuperior);
+
         fields.put("{{DATE}}",LocalDate.now().format(DateTimeFormatter.ofPattern("d/M/yyyy")));
+        fields.put("{{PRECIO_INDIVIDUAL}}", data.precioHospedajeSimple);
+        fields.put("{{PRECIO_DOBLE}}", data.precioHospedajeDoble);
+        fields.put("{{PRECIO_MULTIPLE}}", data.precioHospedajeMultiple);
+
         for (XWPFParagraph paragraph : doc.getParagraphs()) {
             replaceParagraph(paragraph,fields);
         }
         List<String[]> sectionMarkersToRemove = new ArrayList<>();
         if (!data.hospedajeCheck) {sectionMarkersToRemove.add(new String[]{"{{START_HOSPEDAJE}}", "{{END_HOSPEDAJE}}"});}
+        else{
+            sectionMarkersToRemove.add(new String[]{"{{START_HOSPEDAJE}}","{{START_HOSPEDAJE}}"});
+            sectionMarkersToRemove.add(new String[]{"{{END_HOSPEDAJE}}","{{END_HOSPEDAJE}}"});
+        }
         if (!data.planEscencialCheck) {sectionMarkersToRemove.add(new String[]{"{{START_PLAN_ESCENCIAL}}", "{{END_PLAN_ESCENCIAL}}"});}
+        else{
+            sectionMarkersToRemove.add(new String[]{"{{START_PLAN_ESCENCIAL}}","{{START_PLAN_ESCENCIAL}}"});
+            sectionMarkersToRemove.add(new String[]{"{{END_PLAN_ESCENCIAL}}","{{END_PLAN_ESCENCIAL}}"});
+        }
         if (!data.planTradicionalCheck) {sectionMarkersToRemove.add(new String[]{"{{START_PLAN_TRADICIONAL}}", "{{END_PLAN_TRADICIONAL}}"});}
+        else{
+            sectionMarkersToRemove.add(new String[]{"{{START_PLAN_TRADICIONAL}}","{{START_PLAN_TRADICIONAL}}"});
+            sectionMarkersToRemove.add(new String[]{"{{END_PLAN_TRADICIONAL}}","{{END_PLAN_TRADICIONAL}}"});
+        }
         if (!data.planParrilleroCheck) {sectionMarkersToRemove.add(new String[]{"{{START_PLAN_PARRILLERO}}", "{{END_PLAN_PARRILLERO}}"});}
+        else{
+            sectionMarkersToRemove.add(new String[]{"{{START_PLAN_PARRILLERO}}","{{START_PLAN_PARRILLERO}}"});
+            sectionMarkersToRemove.add(new String[]{"{{END_PLAN_PARRILLERO}}","{{END_PLAN_PARRILLERO}}"});
+        }
         List<XWPFParagraph> toRemove = new ArrayList<>();
         String endMarker = null;
 

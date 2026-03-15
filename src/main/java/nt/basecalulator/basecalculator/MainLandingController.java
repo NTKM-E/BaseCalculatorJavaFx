@@ -1,9 +1,10 @@
 package nt.basecalulator.basecalculator;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.CheckBox;
+
+import java.util.List;
 
 
 public class MainLandingController {
@@ -21,6 +22,12 @@ public class MainLandingController {
     private TextField precioPlanSuperior;
     @FXML
     private TextField precioPlanTradicional;
+    @FXML
+    private TextField precioHospedajeSimple;
+    @FXML
+    private TextField precioHospedajeDoble;
+    @FXML
+    private TextField precioHospedajeMultiple;
     @FXML
     private TextField tipoEvento;
     @FXML
@@ -52,7 +59,13 @@ public class MainLandingController {
     @FXML
     private CheckBox planParrilleroCheck;
     @FXML
-    private Button generarButton;
+    private CheckBox alimentacionCheck;
+    @FXML
+    private CheckBox hospedajeSimple;
+    @FXML
+    private CheckBox hospedajeDoble;
+    @FXML
+    private CheckBox hospedajeMultiple;
 
     formData data = new formData();
 
@@ -65,6 +78,10 @@ public class MainLandingController {
         data.precioPlanSuperior = precioPlanSuperior.getText();
         data.precioPlanTradicional = precioPlanTradicional.getText();
         data.tipoEvento = tipoEvento.getText();
+        data.precioHospedajeSimple = precioHospedajeSimple.getText();
+        data.precioHospedajeDoble = precioHospedajeDoble.getText();
+        data.precioHospedajeMultiple = precioHospedajeMultiple.getText();
+
         data.alimentacionServicio = alimentacionServicio.isSelected();
         data.breakPlanEscencial = breakPlanEscencial.isSelected();
         data.breakPlanSuperior = breakPlanSuperior.isSelected();
@@ -80,11 +97,94 @@ public class MainLandingController {
         data.planTradicionalCheck = planTradicionalCheck.isSelected();
         data.planParrilleroCheck = planParrilleroCheck.isSelected();
 
+
     }
     @FXML
     private void setAndGenerate()throws Exception {
         setData();
         DocumentGenerator.generate(data);
     }
+    @FXML
+    public void initialize(){
+        prefixEstimado.selectedProperty().addListener((obs, oldVal, newVal)->{
+            if (newVal){
+                prefixEstimada.setSelected(false);
+                prefixEstimados.setSelected(false);
+            }
+        }
+        );
+        prefixEstimada.selectedProperty().addListener((obs, oldVal, newVal)->{
+                    if (newVal){
+                        prefixEstimado.setSelected(false);
+                        prefixEstimados.setSelected(false);
+                    }
+                }
+        );
+        prefixEstimados.selectedProperty().addListener((obs, oldVal, newVal)->{
+                    if (newVal){
+                        prefixEstimada.setSelected(false);
+                        prefixEstimado.setSelected(false);
+                    }
+                }
+        );
+//Disabling Checkboxes unless parent is available
+//Current parent Child relation
+//alimentacionCheck - > (Plan EscencialCheck, TradicionalCheck, planParrilleroCheck)->(respective breakCheck)
+//hospedaje -> (Hospedaje Simple,Hospedaje Doble, Hospedaje Multiple)
+
+
+
+        planEscencialCheck.setDisable(true);
+        planTradicionalCheck.setDisable(true);
+        planParrilleroCheck.setDisable(true);
+        breakPlanEscencial.setDisable(true);
+        breakPlanTradicional.setDisable(true);
+        breakPlanSuperior.setDisable(true);
+
+        hospedajeSimple.setDisable(true);
+        hospedajeDoble.setDisable(true);
+        hospedajeMultiple.setDisable(true);
+
+        precioPlanEscencial.setDisable(true);
+        precioPlanSuperior.setDisable(true);
+        precioPlanTradicional.setDisable(true);
+        precioHospedajeSimple.setDisable(true);
+        precioHospedajeDoble.setDisable(true);
+        precioHospedajeMultiple.setDisable(true);
+
+        breakPlanEscencial.setSelected(false);
+        breakPlanSuperior.setSelected(false);
+        breakPlanTradicional.setSelected(false);
+
+
+
+
+        setParentChild(alimentacionCheck,List.of(planEscencialCheck,planParrilleroCheck,planTradicionalCheck),List.of());
+        setParentChild(planEscencialCheck,List.of(breakPlanEscencial),List.of(precioPlanEscencial));
+        setParentChild(planParrilleroCheck,List.of(breakPlanSuperior),List.of(precioPlanSuperior));
+        setParentChild(planTradicionalCheck,List.of(breakPlanTradicional),List.of(precioPlanTradicional));
+        setParentChild(hospedajeCheck,List.of(hospedajeSimple,hospedajeDoble,hospedajeMultiple),List.of());
+        setParentChild(hospedajeSimple,List.of(),List.of(precioHospedajeSimple));
+        setParentChild(hospedajeDoble,List.of(),List.of(precioHospedajeDoble));
+        setParentChild(hospedajeMultiple,List.of(),List.of(precioHospedajeMultiple));
+
+    }
+    public void setParentChild(CheckBox parent, List<CheckBox> childCheckBoxes,List<TextField> childTextField){
+        parent.selectedProperty().addListener((obs,oldVal,newVal)->{
+            for (CheckBox child:childCheckBoxes){
+                    child.setDisable(!newVal);
+                    child.setSelected(newVal);
+            }
+            for (TextField childField : childTextField){
+                childField.setDisable(!newVal);
+
+            }
+        });
+
+
+
+
+    }
 }
+
 
